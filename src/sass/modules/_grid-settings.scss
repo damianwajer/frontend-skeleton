@@ -1,0 +1,13 @@
+// Neat helpers
+@import "../vendor/neat/neat-helpers";
+
+// Breakpoints
+$mobile: new-breakpoint(max-width $screen-xs);
+$tablet: new-breakpoint(min-width $screen-xs + 1 max-width $screen-sm - 1);
+$tablet-min: new-breakpoint(min-width $screen-xs + 1);
+$tablet-max: new-breakpoint(max-width $screen-sm - 1);
+$tablet-large: new-breakpoint(min-width $screen-sm max-width $screen-lg - 1);
+$tablet-large-min: new-breakpoint(min-width $screen-sm);
+$tablet-large-max: new-breakpoint(max-width $screen-lg - 1);
+$tablet-all: new-breakpoint(min-width $screen-xs + 1 max-width $screen-lg - 1);
+$desktop-min: new-breakpoint(min-width $screen-lg);

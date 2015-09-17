@@ -1,0 +1,10 @@
+.idea
+nbproject
+.sass-cache
+.DS_Store
+Thumbs.db
+bower_components
+node_modules
+/dist/*
+!/dist/index.html
+!/dist/fonts/
