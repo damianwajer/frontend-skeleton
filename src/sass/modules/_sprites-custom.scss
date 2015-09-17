@@ -1,0 +1,8 @@
+// Generate sprites
+@import 'sprites';
+
+.sprite {
+  display: inline-block;
+}
+
+@include sprites($spritesheet-sprites);
