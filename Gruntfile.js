@@ -31,6 +31,15 @@ module.exports = function (grunt) {
         globalConfig: globalConfig,
         pkg: grunt.file.readJSON('package.json'),
 
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            files: [
+                'src/js/*.js',
+                'Gruntfile.js'
+            ]
+        },
         clean: {
             pages: ['<%= globalConfig.dest %>/pages/**/*.html'],
             js: ['<%= globalConfig.dest %>/js/**/*.js', '<%= globalConfig.dest %>/js/**/*.map'],
@@ -183,7 +192,7 @@ module.exports = function (grunt) {
             },
             'concat-app': {
                 files: ['<%= globalConfig.src %>/js/*.js'],
-                tasks: ['concat:app']
+                tasks: ['jshint:beforeconcat', 'concat:app', 'jshint:afterconcat' ]
             },
             'concat-vendor': {
                 files: ['<%= globalConfig.src %>/js/vendor/**/*.js'],
@@ -214,6 +223,7 @@ module.exports = function (grunt) {
     });
 
     /* load every plugin in package.json */
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -227,6 +237,7 @@ module.exports = function (grunt) {
 
     /* grunt tasks */
     grunt.registerTask('default', [
+        'jshint',
         'clean',
         'assemble',
         'concat',
@@ -238,6 +249,7 @@ module.exports = function (grunt) {
         'watch'
     ]);
     grunt.registerTask('build', [
+        'jshint',
         'clean',
         'assemble',
         'uglify:dist',
