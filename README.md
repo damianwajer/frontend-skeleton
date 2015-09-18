@@ -1,4 +1,5 @@
 # Frontend Skeleton
+> Example frontend project with [Grunt](https://github.com/gruntjs/grunt) workflow and [Browsersync](https://github.com/BrowserSync/grunt-browser-sync).
 
 ## Requirements
 
@@ -16,19 +17,34 @@ Run these commands in the terminal:
 You can view all generated pages in "dist/pages" directory, all source files are in "src" directory.
 
 ## Documentation
-### 1. Grunt
+
+### Grunt
 http://gruntjs.com/
-### 2. Sass (SCSS)
+
+### Sass (SCSS)
 http://sass-lang.com/
-### 3. Bourbon, Neat
+
+### Bourbon
 http://bourbon.io/
+
+### Neat
 http://neat.bourbon.io/
-### 4. Bootstrap
+
+### Bootstrap
 http://getbootstrap.com/
-### 5. Handlebars
+
+### Handlebars
 http://handlebarsjs.com/
-### 6. libSass (a C/C++ port of the Sass engine)
+
+### libSass (a C/C++ port of the Sass engine)
 http://libsass.org/
+
 https://github.com/sass/libsass/wiki/Building-Libsass
-### 7. Browsersync
+
+### Browsersync
 http://www.browsersync.io/
+
+### BEM
+https://en.bem.info/
+
+http://getbem.com/
