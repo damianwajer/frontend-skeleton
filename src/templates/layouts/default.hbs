@@ -1,9 +1,13 @@
 {{>site-header}}
-<div class="container">
-    <h1>{{ this.page.title }}</h1>
-    
-    {{#markdown}}
+
+<section class="main">
+    <article class="main__article">
         {{> body}}
-    {{/markdown}}
-</div>
+    </article>
+
+    <aside class="main__aside">
+        {{>sidebar}}
+    </aside>
+</section>
+
 {{>site-footer}}

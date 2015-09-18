@@ -3,6 +3,8 @@ $images-path: '../images';
 $fonts-path: '../fonts';
 
 // Grid
+$grid-gutter-width: 30px;
+$max-width: 1140px + $grid-gutter-width;
 $screen-xs: 480px;
 $screen-sm: 768px;
 $screen-md: 992px;

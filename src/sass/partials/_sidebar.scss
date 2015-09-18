@@ -1,3 +1,17 @@
 .sidebar {
+  margin-bottom: 15px;
 
+  &__title {
+    margin: 0 0 em(10);
+    font-weight: bold;
+    font-size: em(25);
+
+    &--muted {
+      color: lighten(#000, 30%);
+    }
+  }
+
+  &__content {
+    margin: 0;
+  }
 }
