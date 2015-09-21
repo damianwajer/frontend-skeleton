@@ -1,7 +1,7 @@
 // Generate sprites
 @import 'sprites';
 
-.sprite {
+[class^=sprite] {
   display: inline-block;
 }
 
