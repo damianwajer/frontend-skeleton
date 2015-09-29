@@ -90,6 +90,18 @@ module.exports = function (grunt) {
                 }
             }
         },
+        csscomb: {
+            options: {
+                config: 'csscomb.json'
+            },
+            files: {
+                expand: true,
+                cwd: '<%= globalConfig.src %>/',
+                src: ['sass/**/*.scss', '!sass/vendor/**/*.scss', '!sass/modules/_mixins.scss'],
+                dest: '<%= globalConfig.src %>',
+                ext: '.scss'
+            }
+        },
         sass: {
             dev: {
                 options: {
@@ -228,6 +240,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('assemble');
+    grunt.loadNpmTasks('grunt-csscomb');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-spritesmith');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -243,6 +256,7 @@ module.exports = function (grunt) {
         'concat',
         'imagemin',
         'sprite',
+        'csscomb',
         'sass:dev',
         'postcss',
         'browserSync',
@@ -255,6 +269,7 @@ module.exports = function (grunt) {
         'uglify:dist',
         'imagemin',
         'sprite',
+        'csscomb',
         'sass:dist',
         'postcss'
     ]);
