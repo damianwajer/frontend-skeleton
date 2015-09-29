@@ -11,11 +11,10 @@
 
   &__image {
     @include img-responsive;
-    margin-bottom: em(16);
-
     @include media($tablet-min) {
       float: left;
       margin: 0 em(16) em(16) 0;
     }
+    margin-bottom: em(16);
   }
 }
