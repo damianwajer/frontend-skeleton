@@ -36,7 +36,7 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc'
             },
             files: [
-                'src/js/*.js',
+                '<%= globalConfig.src %>/js/*.js',
                 'Gruntfile.js'
             ]
         },
@@ -204,7 +204,7 @@ module.exports = function (grunt) {
             },
             'concat-app': {
                 files: ['<%= globalConfig.src %>/js/*.js'],
-                tasks: ['jshint:beforeconcat', 'concat:app', 'jshint:afterconcat' ]
+                tasks: ['jshint', 'concat:app']
             },
             'concat-vendor': {
                 files: ['<%= globalConfig.src %>/js/vendor/**/*.js'],
