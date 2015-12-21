@@ -1,31 +1,34 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 // Variables
-@import 'modules/vars';
+@import "_base/vars";
 
 // Bourbon
-@import "vendor/bourbon/bourbon";
+@import "_vendor/bourbon/bourbon";
 
 // Neat
-@import "modules/grid-settings";
-@import "vendor/neat/neat";
+@import "_base/grid-settings";
+@import "_vendor/neat/neat";
 
 // Mixins
-@import 'modules/mixins';
+@import "_base/mixins";
 
 // Typography
-@import 'modules/typography';
+@import "_base/typography";
 
-// Bootstrap
-@import 'vendor/bootstrap';
+// Vendor
+@import "_vendor/bootstrap";
+@import "_vendor/overrides";
+
+// Sprites
+@import "_base/sprites-custom";
+
+// Layouts
+@import "_layout/l-header";
+@import "_layout/l-main";
+@import "_layout/l-footer";
 
 // Modules
-@import 'modules/sprites-custom';
-
-// Partials
-@import 'partials/header';
-@import 'partials/nav';
-@import 'partials/sidebar';
-@import 'partials/main';
-@import 'partials/content';
-@import 'partials/footer';
+@import "_modules/m-content";
+@import "_modules/m-nav";
+@import "_modules/m-sidebar";
