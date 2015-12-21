@@ -1,5 +1,5 @@
 # Frontend Skeleton
-> Example frontend project with [Grunt](https://github.com/gruntjs/grunt) workflow, [Browsersync](https://github.com/BrowserSync/grunt-browser-sync).
+> Example frontend project with [Grunt](https://github.com/gruntjs/grunt) workflow and [Browsersync](https://github.com/BrowserSync/grunt-browser-sync).
 
 ## Requirements
 
