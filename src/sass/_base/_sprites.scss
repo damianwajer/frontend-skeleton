@@ -20,8 +20,8 @@ $sprite-test-width: 63px;
 $sprite-test-height: 46px;
 $sprite-test-total-width: 126px;
 $sprite-test-total-height: 46px;
-$sprite-test-image: '../images/sprites.png?v=1442561523342';
-$sprite-test: (0px, 0px, 0px, 0px, 63px, 46px, 126px, 46px, '../images/sprites.png?v=1442561523342', 'sprite-test', );
+$sprite-test-image: '../images/sprites.png?v=1450691815003';
+$sprite-test: (0px, 0px, 0px, 0px, 63px, 46px, 126px, 46px, '../images/sprites.png?v=1450691815003', 'sprite-test', );
 $sprite-test-hover-name: 'sprite-test:hover';
 $sprite-test-hover-x: 63px;
 $sprite-test-hover-y: 0px;
@@ -31,13 +31,13 @@ $sprite-test-hover-width: 63px;
 $sprite-test-hover-height: 46px;
 $sprite-test-hover-total-width: 126px;
 $sprite-test-hover-total-height: 46px;
-$sprite-test-hover-image: '../images/sprites.png?v=1442561523342';
-$sprite-test-hover: (63px, 0px, -63px, 0px, 63px, 46px, 126px, 46px, '../images/sprites.png?v=1442561523342', 'sprite-test:hover', );
+$sprite-test-hover-image: '../images/sprites.png?v=1450691815003';
+$sprite-test-hover: (63px, 0px, -63px, 0px, 63px, 46px, 126px, 46px, '../images/sprites.png?v=1450691815003', 'sprite-test:hover', );
 $spritesheet-width: 126px;
 $spritesheet-height: 46px;
-$spritesheet-image: '../images/sprites.png?v=1442561523342';
+$spritesheet-image: '../images/sprites.png?v=1450691815003';
 $spritesheet-sprites: ($sprite-test, $sprite-test-hover, );
-$spritesheet: (126px, 46px, '../images/sprites.png?v=1442561523342', $spritesheet-sprites, );
+$spritesheet: (126px, 46px, '../images/sprites.png?v=1450691815003', $spritesheet-sprites, );
 
 /*
 The provided mixins are intended to be used with the array-like variables

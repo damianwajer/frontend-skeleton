@@ -149,7 +149,7 @@ module.exports = function (grunt) {
         sprite: {
             all: {
                 src: '<%= globalConfig.dest %>/images/sprites/*.{png,jpg,gif}',
-                destCss: '<%= globalConfig.src %>/sass/modules/_sprites.scss',
+                destCss: '<%= globalConfig.src %>/sass/_base/_sprites.scss',
                 dest: '<%= globalConfig.dest %>/images/sprites.png',
                 imgPath: '../images/sprites.png?v=<%= globalConfig.timestamp %>',
                 'cssVarMap': function (sprite) {
