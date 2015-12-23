@@ -80,7 +80,7 @@ module.exports = function (grunt) {
                 options: {
                     mangle: false,
                     beautify: false,
-                    preserveComments: 'some',
+                    preserveComments: /^!|@preserve|@license|@cc_on/i,
                     sourceMap: true
                 },
                 files: {

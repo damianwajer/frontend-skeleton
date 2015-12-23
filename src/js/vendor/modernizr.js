@@ -1,10 +1,6 @@
 /*! Modernizr 2.8.3 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-shiv-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes
  */
-;
-
-
-
 window.Modernizr = (function( window, document, undefined ) {
 
     var version = '2.8.3',

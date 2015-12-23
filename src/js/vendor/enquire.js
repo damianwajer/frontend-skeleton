@@ -4,7 +4,7 @@
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
  */
 
-;(function (name, context, factory) {
+(function (name, context, factory) {
 	var matchMedia = window.matchMedia;
 
 	if (typeof module !== 'undefined' && module.exports) {
