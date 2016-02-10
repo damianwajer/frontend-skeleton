@@ -1,4 +1,8 @@
-/*! MediaMatch v.2.0.2 - Testing css media queries in Javascript. Authors & copyright (c) 2013: WebLinc, David Knight. */
+/*!
+ * MediaMatch v.2.0.2
+ * Testing css media queries in Javascript. Authors & copyright (c) 2013: WebLinc, David Knight.
+ * MIT License - https://github.com/weblinc/media-match/blob/master/LICENSE.txt
+ */
 
 window.matchMedia || (window.matchMedia = function (win) {
     'use strict';
