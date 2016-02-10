@@ -1,8 +1,6 @@
-.idea
-nbproject
+# https://git-scm.com/docs/gitignore
+# https://help.github.com/articles/ignoring-files/
 .sass-cache
-.DS_Store
-Thumbs.db
 bower_components
 node_modules
 /dist/*
