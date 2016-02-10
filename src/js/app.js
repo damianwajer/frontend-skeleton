@@ -1,6 +1,5 @@
 ;(function ($, window, document) {
     'use strict';
-    var $slider;
     var app = {
         initEnquire: function () {
             enquire.register('screen and (max-width:479px)', {
@@ -33,17 +32,6 @@
                 unmatch: function () {
                 }
             });
-        },
-        initSlider: function (sliderSelector, options) {
-            // slider default options
-            sliderSelector = sliderSelector || '.bxslider';
-            options = options || {};
-
-            if (typeof $slider !== 'undefined') {
-                $slider.destroySlider();
-            }
-
-            $slider = $(sliderSelector).bxSlider(options);
         },
         initPlaceholder: function () {
             $('input, textarea').placeholder();
