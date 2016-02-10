@@ -44,3 +44,4 @@ ChangeLog text
 *.exe binary
 *.svg binary
 *.mo binary
+*.psd binary
