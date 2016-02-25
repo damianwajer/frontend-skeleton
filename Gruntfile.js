@@ -158,7 +158,7 @@ module.exports = function (grunt) {
                         spritePrefix = 'sprite-';
 
                     if (res[res.length - 1] === 'hover') {
-                        sprite.name = spritePrefix + res.slice(0, -1).join("_") + '.is-active';
+                        sprite.name = spritePrefix + res.slice(0, -1).join("_") + '.sprite--active';
                     } else {
                         sprite.name = spritePrefix + sprite.name;
                     }
