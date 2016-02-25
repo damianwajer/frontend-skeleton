@@ -3,6 +3,10 @@
 
 [class^=sprite] {
   display: inline-block;
+
+  &:hover {
+    @extend .is-active;
+  }
 }
 
 @include sprites($spritesheet-sprites);
