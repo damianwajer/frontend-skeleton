@@ -3,6 +3,7 @@
 
 [class^=sprite] {
   display: inline-block;
+  vertical-align: middle;
 
   &:hover {
     @extend .sprite--active;
