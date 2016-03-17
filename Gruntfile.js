@@ -6,24 +6,24 @@ module.exports = function (grunt) {
         dest: 'dist',
         projectDomain: 'skeleton.loc',
         timestamp: Date.now(),
-        jsVendorFiles: [
-            '<%= globalConfig.src %>/js/vendor/jquery.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/transition.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/alert.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/button.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/carousel.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/collapse.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/dropdown.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/modal.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/tooltip.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/popover.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/scrollspy.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/tab.js',
-            //'<%= globalConfig.src %>/js/vendor/bootstrap/affix.js',
-            '<%= globalConfig.src %>/js/vendor/media.match.js',
-            '<%= globalConfig.src %>/js/vendor/enquire.js',
-            '<%= globalConfig.src %>/js/vendor/*.js', // include all other files from vendor directory
-            '!<%= globalConfig.src %>/js/vendor/modernizr.js' // exclude modernizr (it's in the header)
+        jsVendorHeaderFiles: [
+            '<%= globalConfig.src %>/js/vendor/header/*.js'
+        ],
+        jsVendorFooterFiles: [
+            '<%= globalConfig.src %>/js/vendor/footer/jquery.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/transition.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/alert.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/button.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/carousel.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/collapse.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/dropdown.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/modal.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/tooltip.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/popover.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/scrollspy.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/tab.js',
+            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/affix.js',
+            '<%= globalConfig.src %>/js/vendor/footer/*.js' // include all other files from vendor directory
         ]
     };
 
@@ -65,8 +65,8 @@ module.exports = function (grunt) {
             },
             vendor: {
                 files: {
-                    '<%= globalConfig.dest %>/js/modernizr.js': '<%= globalConfig.src %>/js/vendor/modernizr.js',
-                    '<%= globalConfig.dest %>/js/vendor.js': globalConfig.jsVendorFiles
+                    '<%= globalConfig.dest %>/js/vendors.header.lib.js': globalConfig.jsVendorHeaderFiles,
+                    '<%= globalConfig.dest %>/js/vendors.footer.lib.js': globalConfig.jsVendorFooterFiles
                 }
             },
             app: {
@@ -84,8 +84,8 @@ module.exports = function (grunt) {
                     sourceMap: true
                 },
                 files: {
-                    '<%= globalConfig.dest %>/js/modernizr.js': '<%= globalConfig.src %>/js/vendor/modernizr.js',
-                    '<%= globalConfig.dest %>/js/vendor.js': globalConfig.jsVendorFiles,
+                    '<%= globalConfig.dest %>/js/vendors.header.lib.js': globalConfig.jsVendorHeaderFiles,
+                    '<%= globalConfig.dest %>/js/vendors.footer.lib.js': globalConfig.jsVendorFooterFiles,
                     '<%= globalConfig.dest %>/js/app.js': '<%= globalConfig.src %>/js/*.js'
                 }
             }
@@ -158,7 +158,7 @@ module.exports = function (grunt) {
                         spritePrefix = 'sprite-';
 
                     if (res[res.length - 1] === 'hover') {
-                        sprite.name = spritePrefix + res.slice(0, -1).join("_") + '.sprite--active';
+                        sprite.name = spritePrefix + res.slice(0, -1).join("_") + ':hover';
                     } else {
                         sprite.name = spritePrefix + sprite.name;
                     }
@@ -188,7 +188,7 @@ module.exports = function (grunt) {
             },
             images: {
                 files: ['<%= globalConfig.src %>/images/**/*.{png,jpg,gif}', '<%= globalConfig.src %>/images-content/**/*.{png,jpg,gif}'],
-                tasks: ['clean:images', 'imagemin', 'sprite', 'sass:dev', 'postcss']
+                tasks: ['clean:images', 'imagemin', 'sprite']
             },
             'concat-app': {
                 files: ['<%= globalConfig.src %>/js/*.js'],
@@ -197,6 +197,10 @@ module.exports = function (grunt) {
             'concat-vendor': {
                 files: ['<%= globalConfig.src %>/js/vendor/**/*.js'],
                 tasks: ['concat:vendor']
+            },
+            sprite: {
+                files: ['<%= globalConfig.src %>/images/sprites/**/*.png'],
+                tasks: ['clean:images', 'imagemin', 'sprite']
             },
             sass: {
                 files: ['<%= globalConfig.src %>/sass/**/*.scss'],
