@@ -158,7 +158,7 @@ module.exports = function (grunt) {
                         spritePrefix = 'sprite-';
 
                     if (res[res.length - 1] === 'hover') {
-                        sprite.name = spritePrefix + res.slice(0, -1).join("_") + ':hover';
+                        sprite.name = spritePrefix + res.slice(0, -1).join("_") + '.sprite--active';
                     } else {
                         sprite.name = spritePrefix + sprite.name;
                     }
@@ -188,7 +188,7 @@ module.exports = function (grunt) {
             },
             images: {
                 files: ['<%= globalConfig.src %>/images/**/*.{png,jpg,gif}', '<%= globalConfig.src %>/images-content/**/*.{png,jpg,gif}'],
-                tasks: ['clean:images', 'imagemin', 'sprite']
+                tasks: ['clean:images', 'imagemin', 'sprite', 'sass:dev', 'postcss']
             },
             'concat-app': {
                 files: ['<%= globalConfig.src %>/js/*.js'],
@@ -197,10 +197,6 @@ module.exports = function (grunt) {
             'concat-vendor': {
                 files: ['<%= globalConfig.src %>/js/vendor/**/*.js'],
                 tasks: ['concat:vendor']
-            },
-            sprite: {
-                files: ['<%= globalConfig.src %>/images/sprites/**/*.png'],
-                tasks: ['clean:images', 'imagemin', 'sprite']
             },
             sass: {
                 files: ['<%= globalConfig.src %>/sass/**/*.scss'],
