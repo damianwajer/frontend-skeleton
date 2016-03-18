@@ -18,36 +18,21 @@ You can view all generated pages in "dist/pages" directory, all source files are
 
 ## Documentation
 
-### Grunt
-http://gruntjs.com/
+* Grunt http://gruntjs.com/
+* Sass (SCSS) http://sass-lang.com/
+* Bourbon http://bourbon.io/
+* Neat http://neat.bourbon.io/
+* Bootstrap http://getbootstrap.com/
+* Handlebars http://handlebarsjs.com/
+* libSass (a C/C++ port of the Sass engine) http://libsass.org/
+* Browsersync http://www.browsersync.io/
+* BEM https://en.bem.info/ | http://getbem.com/
+* SMACSS https://smacss.com/
 
-### Sass (SCSS)
-http://sass-lang.com/
+## Support
 
-### Bourbon
-http://bourbon.io/
+Please [open an issue](https://github.com/damianwajer/frontend-skeleton/issues/new) for support.
 
-### Neat
-http://neat.bourbon.io/
+## Contributing
 
-### Bootstrap
-http://getbootstrap.com/
-
-### Handlebars
-http://handlebarsjs.com/
-
-### libSass (a C/C++ port of the Sass engine)
-http://libsass.org/
-
-https://github.com/sass/libsass/wiki/Building-Libsass
-
-### Browsersync
-http://www.browsersync.io/
-
-### BEM
-https://en.bem.info/
-
-http://getbem.com/
-
-### SMACSS
-https://smacss.com/
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, [open a pull request](https://github.com/damianwajer/frontend-skeleton/compare/).
