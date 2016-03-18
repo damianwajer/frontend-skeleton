@@ -2,9 +2,9 @@
   margin-bottom: 15px;
 
   &__title {
-    margin: 0 0 em(10);
+    margin: 0 0 rem(10);
     font-weight: bold;
-    font-size: em(25);
+    font-size: rem(25);
 
     &--muted {
       color: lighten(#000, 30%);
