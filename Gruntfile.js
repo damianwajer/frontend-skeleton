@@ -4,7 +4,6 @@ module.exports = function (grunt) {
     var globalConfig = {
         src: 'src',
         dest: 'dist',
-        projectDomain: 'skeleton.loc',
         timestamp: Date.now(),
         jsVendorHeaderFiles: [
             '<%= globalConfig.src %>/js/vendor/header/*.js'
@@ -213,7 +212,9 @@ module.exports = function (grunt) {
             },
             options: {
                 watchTask: true,
-                proxy: '<%= globalConfig.projectDomain %>'
+                server: {
+                    baseDir: "dist"
+                }
             }
         }
     });
