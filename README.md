@@ -5,7 +5,6 @@
 
 - [npm](https://github.com/npm/npm)
 - [libSass](https://github.com/sass/libsass)
-- Virtual host `skeleton.loc` or any other projectDomain configured in Gruntfile.js
 
 ## Getting started
 
