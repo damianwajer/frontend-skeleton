@@ -4,6 +4,7 @@
 ## Requirements
 
 - [npm](https://github.com/npm/npm)
+- [Bower](https://github.com/bower/bower)
 - [libSass](https://github.com/sass/libsass)
 
 ## Getting started

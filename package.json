@@ -23,6 +23,9 @@
     "url": "https://github.com/damianwajer/frontend-skeleton/issues"
   },
   "homepage": "https://github.com/damianwajer/frontend-skeleton#readme",
+  "scripts": {
+    "postinstall": "bower install"
+  },
   "devDependencies": {
     "assemble": "^0.4.42",
     "autoprefixer": "^6.0.1",

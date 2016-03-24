@@ -4,11 +4,11 @@
 @import "_base/vars";
 
 // Bourbon
-@import "_vendor/bourbon/bourbon";
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 
 // Neat
 @import "_base/grid-settings";
-@import "_vendor/neat/neat";
+@import "../bower_components/neat/app/assets/stylesheets/neat";
 
 // Mixins
 @import "_base/mixins";
