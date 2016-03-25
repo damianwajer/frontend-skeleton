@@ -5,16 +5,18 @@
 
 - [npm](https://github.com/npm/npm)
 - [Bower](https://github.com/bower/bower)
+- [Grunt](https://github.com/gruntjs/grunt)
 - [libSass](https://github.com/sass/libsass)
 
 ## Getting started
 
-Run these commands in the terminal:
-
-1. `npm install`
-2. `grunt` (to build all project files for development) or `grunt build` (for production)
+Run `npm install` in the terminal.
 
 You can view all generated pages in "dist/pages" directory, all source files are in "src" directory.
+
+## Usage
+
+Run `grunt` to build all project files for development or `grunt build` to build files for production.
 
 ## Documentation
 
