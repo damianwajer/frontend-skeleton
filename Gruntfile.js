@@ -43,7 +43,7 @@ module.exports = function (grunt) {
             pages: ['<%= globalConfig.dest %>/pages/**/*.html'],
             js: ['<%= globalConfig.dest %>/js/**/*.js', '<%= globalConfig.dest %>/js/**/*.map'],
             css: ['<%= globalConfig.dest %>/css/**/*.css', '<%= globalConfig.dest %>/css/**/*.map'],
-            images: ['<%= globalConfig.dest %>/images/**/*.{png,jpg,gif}', '<%= globalConfig.dest %>/images-content/**/*.{png,jpg,gif}']
+            images: ['<%= globalConfig.dest %>/images/**/*.{png,jpg,gif,svg}', '<%= globalConfig.dest %>/images-content/**/*.{png,jpg,gif,svg}']
         },
         assemble: {
             options: {
@@ -129,7 +129,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= globalConfig.src %>/images',
-                    src: ['**/*.{png,jpg,gif}'],
+                    src: ['**/*.{png,jpg,gif,svg}'],
                     dest: '<%= globalConfig.dest %>/images/'
                 }]
             },
@@ -140,7 +140,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= globalConfig.src %>/images-content',
-                    src: ['**/*.{png,jpg,gif}'],
+                    src: ['**/*.{png,jpg,gif,svg}'],
                     dest: '<%= globalConfig.dest %>/images-content/'
                 }]
             }
@@ -186,7 +186,7 @@ module.exports = function (grunt) {
                 tasks: ['clean:pages', 'assemble']
             },
             images: {
-                files: ['<%= globalConfig.src %>/images/**/*.{png,jpg,gif}', '<%= globalConfig.src %>/images-content/**/*.{png,jpg,gif}'],
+                files: ['<%= globalConfig.src %>/images/**/*.{png,jpg,gif,svg}', '<%= globalConfig.src %>/images-content/**/*.{png,jpg,gif,svg}'],
                 tasks: ['clean:images', 'imagemin', 'sprite', 'sass:dev', 'postcss']
             },
             'concat-app': {
