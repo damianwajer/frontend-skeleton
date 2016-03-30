@@ -16,7 +16,7 @@ You can view all generated pages in "dist/pages" directory, all source files are
 
 ## Usage
 
-Run `grunt` to build all project files for development or `grunt build` to build files for production.
+Run `grunt` to build all project files for development and watch for changes or `grunt build` to build files for production.
 
 ## Documentation
 
