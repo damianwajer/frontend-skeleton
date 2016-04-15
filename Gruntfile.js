@@ -43,6 +43,7 @@ module.exports = function (grunt) {
             pages: ['<%= globalConfig.dest %>/pages/**/*.html'],
             js: ['<%= globalConfig.dest %>/js/**/*.js', '<%= globalConfig.dest %>/js/**/*.map'],
             css: ['<%= globalConfig.dest %>/css/**/*.css', '<%= globalConfig.dest %>/css/**/*.map'],
+            fonts: ['<%= globalConfig.dest %>/fonts/**'],
             images: ['<%= globalConfig.dest %>/images/**/*.{png,jpg,gif,svg}', '<%= globalConfig.dest %>/images-content/**/*.{png,jpg,gif,svg}']
         },
         assemble: {
@@ -177,6 +178,18 @@ module.exports = function (grunt) {
                 src: '<%= globalConfig.dest %>/css/**/*.css'
             }
         },
+        copy: {
+            fonts: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= globalConfig.src %>/',
+                        src: ['fonts/**'],
+                        dest: '<%= globalConfig.dest %>/'
+                    }
+                ]
+            }
+        },
         watch: {
             options: {
                 spawn: false
@@ -200,6 +213,10 @@ module.exports = function (grunt) {
             sass: {
                 files: ['<%= globalConfig.src %>/sass/**/*.scss'],
                 tasks: ['clean:css', 'sass:dev', 'postcss']
+            },
+            fonts: {
+                files: ['<%= globalConfig.src %>/fonts/**'],
+                tasks: ['clean:fonts', 'copy:fonts']
             }
         },
         browserSync: {
@@ -231,11 +248,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     /* grunt tasks */
     grunt.registerTask('default', [
         'jshint',
         'clean',
+        'copy',
         'assemble',
         'concat',
         'imagemin',
@@ -248,6 +267,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'jshint',
         'clean',
+        'copy',
         'assemble',
         'uglify:dist',
         'imagemin',
