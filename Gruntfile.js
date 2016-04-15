@@ -192,7 +192,7 @@ module.exports = function (grunt) {
         },
         watch: {
             options: {
-                spawn: false
+                spawn: true
             },
             assemble: {
                 files: ['<%= globalConfig.src %>/templates/**/*.hbs'],
