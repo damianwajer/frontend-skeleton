@@ -1,33 +1,13 @@
 module.exports = function (grunt) {
     'use strict';
 
-    var globalConfig = {
-        src: 'src',
-        dest: 'dist',
-        timestamp: Date.now(),
-        jsVendorHeaderFiles: [
-            '<%= globalConfig.src %>/js/vendor/header/*.js'
-        ],
-        jsVendorFooterFiles: [
-            '<%= globalConfig.src %>/js/vendor/footer/jquery.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/transition.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/alert.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/button.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/carousel.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/collapse.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/dropdown.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/modal.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/tooltip.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/popover.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/scrollspy.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/tab.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/affix.js',
-            '<%= globalConfig.src %>/js/vendor/footer/*.js' // include all other files from vendor directory
-        ]
-    };
-
     grunt.initConfig({
-        globalConfig: globalConfig,
+        globalConfig: {
+            src: 'src',
+            dest: 'dist',
+            timestamp: Date.now()
+        },
+        manifest: grunt.file.readJSON('src/manifest.json'),
         pkg: grunt.file.readJSON('package.json'),
 
         jshint: {
@@ -65,8 +45,8 @@ module.exports = function (grunt) {
             },
             vendor: {
                 files: {
-                    '<%= globalConfig.dest %>/js/vendors.header.lib.js': globalConfig.jsVendorHeaderFiles,
-                    '<%= globalConfig.dest %>/js/vendors.footer.lib.js': globalConfig.jsVendorFooterFiles
+                    '<%= globalConfig.dest %>/js/vendors.header.lib.js': '<%= manifest.dependencies.jsVendorHeaderFiles %>',
+                    '<%= globalConfig.dest %>/js/vendors.footer.lib.js': '<%= manifest.dependencies.jsVendorFooterFiles %>'
                 }
             },
             app: {
@@ -84,8 +64,8 @@ module.exports = function (grunt) {
                     sourceMap: true
                 },
                 files: {
-                    '<%= globalConfig.dest %>/js/vendors.header.lib.js': globalConfig.jsVendorHeaderFiles,
-                    '<%= globalConfig.dest %>/js/vendors.footer.lib.js': globalConfig.jsVendorFooterFiles,
+                    '<%= globalConfig.dest %>/js/vendors.header.lib.js': '<%= manifest.dependencies.jsVendorHeaderFiles %>',
+                    '<%= globalConfig.dest %>/js/vendors.footer.lib.js': '<%= manifest.dependencies.jsVendorFooterFiles %>',
                     '<%= globalConfig.dest %>/js/app.js': '<%= globalConfig.src %>/js/*.js'
                 }
             }
@@ -194,6 +174,13 @@ module.exports = function (grunt) {
             options: {
                 spawn: true
             },
+            config: {
+                options: {
+                    spawn: false
+                },
+                files: ['<%= globalConfig.src %>/manifest.json'],
+                tasks: ['updateConfig', 'concat:vendor']
+            },
             assemble: {
                 files: ['<%= globalConfig.src %>/templates/**/*.hbs'],
                 tasks: ['clean:pages', 'assemble']
@@ -250,7 +237,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
-    /* grunt tasks */
+    /* Grunt development task */
     grunt.registerTask('default', [
         'jshint',
         'clean',
@@ -264,6 +251,8 @@ module.exports = function (grunt) {
         'browserSync',
         'watch'
     ]);
+
+    /* Grunt production task */
     grunt.registerTask('build', [
         'jshint',
         'clean',
@@ -276,4 +265,8 @@ module.exports = function (grunt) {
         'postcss'
     ]);
 
+    /* Update Grunt config */
+    grunt.registerTask('updateConfig', function () {
+        grunt.config.set('manifest', grunt.file.readJSON(grunt.config.get('globalConfig.src') + '/manifest.json'));
+    });
 };

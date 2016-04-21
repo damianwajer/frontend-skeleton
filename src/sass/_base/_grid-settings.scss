@@ -1,5 +1,5 @@
 // Neat helpers
-@import "../_vendor/neat/neat-helpers";
+@import "../../bower_components/neat/app/assets/stylesheets/neat";
 
 // Breakpoints
 $mobile: new-breakpoint(max-width $screen-xs);
