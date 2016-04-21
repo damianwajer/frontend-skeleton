@@ -27,7 +27,7 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
+  "dependencies": {
     "jquery": "1.12.2",
     "bootstrap-sass-official": "^3.3.6",
     "enquire": "^2.1.2",
