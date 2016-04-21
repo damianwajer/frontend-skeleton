@@ -170,6 +170,21 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        to_html: {
+            build: {
+                options: {
+                    generatePage: true,
+                    useFileNameAsTitle: true,
+                    rootDirectory: '<%= globalConfig.dest %>/pages',
+                    template: grunt.file.read('src/templates/listing.hbs'),
+                    templatingLanguage: 'handlebars'
+
+                },
+                files: {
+                    '<%= globalConfig.dest %>/index.html': '<%= globalConfig.dest %>/pages/*.html'
+                }
+            }
+        },
         watch: {
             options: {
                 spawn: true
@@ -183,7 +198,7 @@ module.exports = function (grunt) {
             },
             assemble: {
                 files: ['<%= globalConfig.src %>/templates/**/*.hbs'],
-                tasks: ['clean:pages', 'assemble']
+                tasks: ['clean:pages', 'assemble', 'to_html']
             },
             images: {
                 files: ['<%= globalConfig.src %>/images/**/*.{png,jpg,gif,svg}', '<%= globalConfig.src %>/images-content/**/*.{png,jpg,gif,svg}'],
@@ -236,6 +251,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-directory-to-html');
 
     /* Grunt development task */
     grunt.registerTask('default', [
@@ -243,6 +259,7 @@ module.exports = function (grunt) {
         'clean',
         'copy',
         'assemble',
+        'to_html',
         'concat',
         'imagemin',
         'sprite',
@@ -258,6 +275,7 @@ module.exports = function (grunt) {
         'clean',
         'copy',
         'assemble',
+        'to_html',
         'uglify:dist',
         'imagemin',
         'sprite',
