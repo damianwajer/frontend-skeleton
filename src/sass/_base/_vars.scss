@@ -9,10 +9,19 @@ $color3: #ff0000;
 $color4: #40ff40;
 $color5: #54cc14;
 $text-color: #000;
+$link-color: blue;
+$link-hover-color: darken($link-color, 10%);
+$link-hover-decoration: underline;
+$body-bg: #fff;
+$brand-primary: $color1;
+
+// Layout
+$border-radius-base: 4px;
 
 // Grid
 $grid-gutter-width: 30px;
 $max-width: 1140px + $grid-gutter-width;
+$container-large-desktop: $max-width;
 $screen-xs: 480px;
 $screen-sm: 768px;
 $screen-md: 992px;
@@ -20,5 +29,22 @@ $screen-lg: 1200px;
 
 // Typography
 $em-base: 10px;
+$font-family-base: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.4;
+
+// Headings
+$headings-font-family: $font-family-base;
+$headings-font-weight: 700;
+$font-size-h1: 3.4rem;
+$font-size-h2: 3rem;
+$font-size-h3: 2.8rem;
+$font-size-h4: 2.4rem;
+$font-size-h5: 2.2rem;
+$font-size-h6: 2rem;
+$headings-color: $text-color;
+
+// Forms
+$input-border: #ccc;
+$input-color: $text-color;
+$input-bg: #fff;

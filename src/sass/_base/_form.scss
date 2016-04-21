@@ -1,0 +1,9 @@
+.m-form {
+  &__group {
+    @extend .form-group;
+  }
+}
+
+.form-control {
+  @include placeholder($input-color);
+}

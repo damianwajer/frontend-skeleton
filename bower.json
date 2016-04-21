@@ -1,0 +1,39 @@
+{
+  "name": "frontend-skeleton",
+  "version": "1.5.0",
+  "description": "Example frontend project with Grunt workflow and Browsersync",
+  "main": "Grunt.js",
+  "authors": [
+    "Damian Wajer"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "skeleton",
+    "boilerplate",
+    "grunt",
+    "sass",
+    "bem",
+    "smacss",
+    "browsersync"
+  ],
+  "homepage": "https://github.com/damianwajer/frontend-skeleton",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.12.2",
+    "bootstrap-sass-official": "^3.3.6",
+    "enquire": "^2.1.2",
+    "jquery-placeholder": "^2.3.1",
+    "media-match": "^2.0.2",
+    "bourbon": "^4.2.6",
+    "neat": "^1.7.4"
+  }
+}

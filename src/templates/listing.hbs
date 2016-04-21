@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="refresh" content="5;url=dist/index.html">
 
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -16,8 +15,24 @@
 </head>
 <body>
 <h1>Project pages</h1>
-<p>
-    To see all project pages go to <a href="dist/index.html">dist/index.html</a>.
-</p>
+<ul>
+    {{#each modules}}
+        <li>
+            {{#if path}}
+                <a href="../{{path}}">{{title}}</a>
+            {{else}}
+                <strong>{{title}}</strong>
+            {{/if}}
+
+            {{#if description}}
+                <p>{{description}}</p>
+            {{/if}}
+
+            {{#if children}}
+                {{&recurse children}}
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>
 </body>
 </html>
