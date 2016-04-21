@@ -37,4 +37,4 @@ Please [open an issue](https://github.com/damianwajer/frontend-skeleton/issues/n
 
 ## Contributing
 
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, [open a pull request](https://github.com/damianwajer/frontend-skeleton/compare/).
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, [open a pull request](https://github.com/damianwajer/frontend-skeleton/pull/new/develop...).
