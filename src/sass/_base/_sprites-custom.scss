@@ -6,7 +6,7 @@
   vertical-align: middle;
 
   &:hover {
-    @extend .sprite--active;
+    @extend .sprite--active !optional;
   }
 }
 
