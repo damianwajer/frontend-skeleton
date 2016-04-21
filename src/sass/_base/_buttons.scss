@@ -1,0 +1,12 @@
+.button {
+  @extend .btn;
+  @include button-variant(#fff, $color1, $color1);
+
+  &--primary {
+    @include button-variant(#fff, $color2, $color2);
+  }
+
+  &--secondary {
+    @include button-variant(#fff, $color3, $color3);
+  }
+}
