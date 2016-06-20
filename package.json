@@ -1,6 +1,6 @@
 {
   "name": "frontend-skeleton",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Example frontend project with Grunt workflow and Browsersync",
   "main": "Grunt.js",
   "repository": {
