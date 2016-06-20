@@ -4,11 +4,11 @@
 @import "_base/vars";
 
 // Bourbon
-@import "_vendor/bourbon/bourbon";
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 
 // Neat
 @import "_base/grid-settings";
-@import "_vendor/neat/neat";
+@import "../bower_components/neat/app/assets/stylesheets/neat";
 
 // Mixins
 @import "_base/mixins";
@@ -22,14 +22,14 @@
 
 // Base
 @import "_base/common";
+@import "_base/form";
+@import "_base/buttons";
 
 // Sprites
 @import "_base/sprites-custom";
 
 // Layouts
-@import "_layout/l-header";
 @import "_layout/l-main";
-@import "_layout/l-footer";
 
 // Modules
 @import "_modules/m-content";

@@ -1,33 +1,13 @@
 module.exports = function (grunt) {
     'use strict';
 
-    var globalConfig = {
-        src: 'src',
-        dest: 'dist',
-        timestamp: Date.now(),
-        jsVendorHeaderFiles: [
-            '<%= globalConfig.src %>/js/vendor/header/*.js'
-        ],
-        jsVendorFooterFiles: [
-            '<%= globalConfig.src %>/js/vendor/footer/jquery.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/transition.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/alert.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/button.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/carousel.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/collapse.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/dropdown.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/modal.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/tooltip.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/popover.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/scrollspy.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/tab.js',
-            //'<%= globalConfig.src %>/js/vendor/footer/bootstrap/affix.js',
-            '<%= globalConfig.src %>/js/vendor/footer/*.js' // include all other files from vendor directory
-        ]
-    };
-
     grunt.initConfig({
-        globalConfig: globalConfig,
+        globalConfig: {
+            src: 'src',
+            dest: 'dist',
+            timestamp: Date.now()
+        },
+        manifest: grunt.file.readJSON('src/manifest.json'),
         pkg: grunt.file.readJSON('package.json'),
 
         jshint: {
@@ -65,8 +45,8 @@ module.exports = function (grunt) {
             },
             vendor: {
                 files: {
-                    '<%= globalConfig.dest %>/js/vendors.header.lib.js': globalConfig.jsVendorHeaderFiles,
-                    '<%= globalConfig.dest %>/js/vendors.footer.lib.js': globalConfig.jsVendorFooterFiles
+                    '<%= globalConfig.dest %>/js/vendors.header.lib.js': '<%= manifest.dependencies.jsVendorHeaderFiles %>',
+                    '<%= globalConfig.dest %>/js/vendors.footer.lib.js': '<%= manifest.dependencies.jsVendorFooterFiles %>'
                 }
             },
             app: {
@@ -84,8 +64,8 @@ module.exports = function (grunt) {
                     sourceMap: true
                 },
                 files: {
-                    '<%= globalConfig.dest %>/js/vendors.header.lib.js': globalConfig.jsVendorHeaderFiles,
-                    '<%= globalConfig.dest %>/js/vendors.footer.lib.js': globalConfig.jsVendorFooterFiles,
+                    '<%= globalConfig.dest %>/js/vendors.header.lib.js': '<%= manifest.dependencies.jsVendorHeaderFiles %>',
+                    '<%= globalConfig.dest %>/js/vendors.footer.lib.js': '<%= manifest.dependencies.jsVendorFooterFiles %>',
                     '<%= globalConfig.dest %>/js/app.js': '<%= globalConfig.src %>/js/*.js'
                 }
             }
@@ -152,6 +132,7 @@ module.exports = function (grunt) {
                 destCss: '<%= globalConfig.src %>/sass/_base/_sprites.scss',
                 dest: '<%= globalConfig.dest %>/images/sprites.png',
                 imgPath: '../images/sprites.png?v=<%= globalConfig.timestamp %>',
+                padding: 2,
                 'cssVarMap': function (sprite) {
                     var str = sprite.name,
                         res = str.split("_"),
@@ -190,13 +171,35 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        to_html: {
+            build: {
+                options: {
+                    generatePage: true,
+                    useFileNameAsTitle: true,
+                    rootDirectory: '<%= globalConfig.dest %>/pages',
+                    template: grunt.file.read('src/templates/listing.hbs'),
+                    templatingLanguage: 'handlebars'
+
+                },
+                files: {
+                    '<%= globalConfig.dest %>/index.html': '<%= globalConfig.dest %>/pages/*.html'
+                }
+            }
+        },
         watch: {
             options: {
                 spawn: true
             },
+            config: {
+                options: {
+                    spawn: false
+                },
+                files: ['<%= globalConfig.src %>/manifest.json'],
+                tasks: ['updateConfig', 'concat:vendor']
+            },
             assemble: {
                 files: ['<%= globalConfig.src %>/templates/**/*.hbs'],
-                tasks: ['clean:pages', 'assemble']
+                tasks: ['clean:pages', 'assemble', 'to_html']
             },
             images: {
                 files: ['<%= globalConfig.src %>/images/**/*.{png,jpg,gif,svg}', '<%= globalConfig.src %>/images-content/**/*.{png,jpg,gif,svg}'],
@@ -228,6 +231,7 @@ module.exports = function (grunt) {
                 ]
             },
             options: {
+                reloadDelay: 500,
                 watchTask: true,
                 server: {
                     baseDir: "./"
@@ -249,13 +253,15 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-directory-to-html');
 
-    /* grunt tasks */
+    /* Grunt development task */
     grunt.registerTask('default', [
         'jshint',
         'clean',
         'copy',
         'assemble',
+        'to_html',
         'concat',
         'imagemin',
         'sprite',
@@ -264,11 +270,14 @@ module.exports = function (grunt) {
         'browserSync',
         'watch'
     ]);
+
+    /* Grunt production task */
     grunt.registerTask('build', [
         'jshint',
         'clean',
         'copy',
         'assemble',
+        'to_html',
         'uglify:dist',
         'imagemin',
         'sprite',
@@ -276,4 +285,8 @@ module.exports = function (grunt) {
         'postcss'
     ]);
 
+    /* Update Grunt config */
+    grunt.registerTask('updateConfig', function () {
+        grunt.config.set('manifest', grunt.file.readJSON(grunt.config.get('globalConfig.src') + '/manifest.json'));
+    });
 };

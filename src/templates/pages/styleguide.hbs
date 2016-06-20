@@ -55,6 +55,8 @@ styleguide: true
 <div class="container">
     <p>
         <button type="button" class="button">Button</button>
+        <button type="button" class="button button--primary">Button</button>
+        <button type="button" class="button button--secondary">Button</button>
     </p>
 </div>
 
@@ -65,26 +67,42 @@ styleguide: true
 <div class="container">
     <form class="m-form">
         <div class="m-form__group">
-            <label for="form-input">Input</label><br>
+            <label for="form-input">Input</label>
             <input type="text" class="form-control" id="form-input" name="form-input" placeholder="Input">
         </div>
         <div class="m-form__group">
-            <label for="form-select">Select</label><br>
+            <label for="form-select">Select</label>
             <select class="form-control" id="form-select" name="form-select">
                 <option value="">Option 1</option>
                 <option value="">Option 2</option>
                 <option value="">Option 3</option>
             </select>
         </div>
-        <div class="m-form__group">
+        <div class="checkbox">
             <label>
                 <input type="checkbox" name="form-checkbox"> Checkbox
             </label>
         </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="form-radio"> Radio 1
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="form-radio"> Radio 2
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="form-file">File input</label>
+            <input type="file" id="form-file">
+        </div>
         <div class="m-form__group">
-            <label for="form-textarea">Textarea</label><br>
+            <label for="form-textarea">Textarea</label>
             <textarea name="form-textarea" id="form-textarea" class="form-control" cols="30" rows="10"></textarea>
         </div>
         <button type="submit" class="button">Submit</button>
     </form>
 </div>
+
+<br>
