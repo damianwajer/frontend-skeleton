@@ -1,21 +1,3 @@
 .m-content {
-  &__title {
-    margin: 0 0 rem(10);
-    font-weight: bold;
-    font-size: rem(36);
-  }
 
-  &__paragraph {
-    margin: 0 0 rem(16);
-  }
-
-  &__image {
-    @include img-responsive;
-    margin-bottom: rem(16);
-
-    @include media($tablet-min) {
-      float: left;
-      margin: 0 rem(16) rem(16) 0;
-    }
-  }
 }

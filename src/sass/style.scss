@@ -3,13 +3,6 @@
 // Variables
 @import "_base/vars";
 
-// Bourbon
-@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
-
-// Neat
-@import "_base/grid-settings";
-@import "../bower_components/neat/app/assets/stylesheets/neat";
-
 // Mixins
 @import "_base/mixins";
 
@@ -22,14 +15,11 @@
 
 // Base
 @import "_base/common";
-@import "_base/form";
+@import "_base/utilities";
 @import "_base/buttons";
 
 // Sprites
 @import "_base/sprites-custom";
-
-// Layouts
-@import "_layout/l-main";
 
 // Modules
 @import "_modules/m-content";

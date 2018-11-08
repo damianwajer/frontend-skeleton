@@ -4,7 +4,6 @@
 ## Requirements
 
 - [npm](https://github.com/npm/npm)
-- [Bower](https://github.com/bower/bower)
 - [Grunt](https://github.com/gruntjs/grunt)
 - [libSass](https://github.com/sass/libsass)
 
@@ -22,8 +21,6 @@ Run `grunt` to build all project files for development and watch for changes or 
 
 * Grunt http://gruntjs.com/
 * Sass (SCSS) http://sass-lang.com/
-* Bourbon http://bourbon.io/
-* Neat http://neat.bourbon.io/
 * Bootstrap http://getbootstrap.com/
 * Handlebars http://handlebarsjs.com/
 * libSass (a C/C++ port of the Sass engine) http://libsass.org/
