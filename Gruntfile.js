@@ -52,10 +52,41 @@ module.exports = function (grunt) {
           '<%= globalConfig.dest %>/js/vendors.header.lib.js': '<%= manifest.dependencies.jsVendorHeaderFiles %>',
           '<%= globalConfig.dest %>/js/vendors.footer.lib.js': '<%= manifest.dependencies.jsVendorFooterFiles %>'
         }
+      }
+    },
+    babel: {
+      options: {
+        sourceMap: true,
+        presets: ['@babel/preset-env']
       },
-      app: {
+      dist: {
         files: {
-          '<%= globalConfig.dest %>/js/app.js': ['<%= globalConfig.src %>/js/*.js']
+          '<%= globalConfig.dest %>/js/app.js': '<%= globalConfig.src %>/js/app.js'
+        }
+      }
+    },
+    browserify: {
+      options: {
+        transform: [["babelify", {"presets": ["@babel/preset-env"]}]]
+      },
+      dev: {
+        options: {
+          browserifyOptions: {
+            debug: true
+          },
+        },
+        files: {
+          '<%= globalConfig.dest %>/js/app.js': '<%= globalConfig.src %>/js/app.js'
+        }
+      },
+      dist: {
+        options: {
+          browserifyOptions: {
+            debug: false
+          },
+        },
+        files: {
+          '<%= globalConfig.dest %>/js/app.js': '<%= globalConfig.src %>/js/app.js'
         }
       }
     },
@@ -65,12 +96,12 @@ module.exports = function (grunt) {
           mangle: false,
           beautify: false,
           preserveComments: /^!|@preserve|@license|@cc_on/i,
-          sourceMap: true
+          sourceMap: false
         },
         files: {
           '<%= globalConfig.dest %>/js/vendors.header.lib.js': '<%= manifest.dependencies.jsVendorHeaderFiles %>',
           '<%= globalConfig.dest %>/js/vendors.footer.lib.js': '<%= manifest.dependencies.jsVendorFooterFiles %>',
-          '<%= globalConfig.dest %>/js/app.js': '<%= globalConfig.src %>/js/*.js'
+          '<%= globalConfig.dest %>/js/app.js': '<%= globalConfig.dest %>/js/app.js'
         }
       }
     },
@@ -214,8 +245,8 @@ module.exports = function (grunt) {
         tasks: ['clean:images', 'imagemin', 'sprite', 'sass:dev', 'postcss']
       },
       'concat-app': {
-        files: ['<%= globalConfig.src %>/js/*.js'],
-        tasks: ['jshint', 'concat:app']
+        files: ['<%= globalConfig.src %>/js/app.js', '<%= globalConfig.src %>/js/modules/*.js'],
+        tasks: ['jshint', 'browserify:dev']
       },
       'concat-vendor': {
         files: ['<%= globalConfig.src %>/js/vendor/**/*.js'],
@@ -260,6 +291,7 @@ module.exports = function (grunt) {
     'sprite',
     'sass:dev',
     'postcss',
+    'browserify:dev',
     'browserSync',
     'watch'
   ]);
@@ -271,11 +303,12 @@ module.exports = function (grunt) {
     'copy',
     'assemble',
     'to_html',
-    'uglify:dist',
     'imagemin',
     'sprite',
     'sass:dist',
-    'postcss'
+    'postcss',
+    'browserify:dist',
+    'uglify:dist'
   ]);
 
   // Update Grunt config

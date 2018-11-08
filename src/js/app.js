@@ -1,6 +1,8 @@
-;(function ($, window, document) {
-  'use strict';
-  var app = {
+import {Person} from './modules/Person';
+
+(function ($, window, document) {
+
+  const app = {
     initEnquire: function () {
       enquire.register('screen and (max-width:479px)', {
         match: function () {
@@ -33,13 +35,15 @@
         }
       });
     },
-    initPlaceholder: function () {
-
+    initPerson: function () {
+      const john = new Person('John', 'Smith');
+      console.log(john.fullName);
     }
   };
 
   $(document).ready(function () {
     app.initEnquire();
+    app.initPerson();
   });
 
   $(window).on('load', function () {

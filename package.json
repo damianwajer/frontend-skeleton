@@ -33,11 +33,15 @@
     "not dead"
   ],
   "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
     "autoprefixer": "^9.3.1",
+    "babelify": "^10.0.0",
     "gmsmith": "^1.2.0",
     "grunt": "^1.0.3",
     "grunt-assemble": "^0.6.3",
     "grunt-browser-sync": "^2.0.0",
+    "grunt-browserify": "^5.3.0",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",

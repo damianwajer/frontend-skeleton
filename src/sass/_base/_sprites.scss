@@ -18,8 +18,8 @@ $sprite-test-width: 63px;
 $sprite-test-height: 46px;
 $sprite-test-total-width: 128px;
 $sprite-test-total-height: 46px;
-$sprite-test-image: '../images/sprites.png?v=1541669823855';
-$sprite-test: (65px, 0px, -65px, 0px, 63px, 46px, 128px, 46px, '../images/sprites.png?v=1541669823855', 'sprite-test', );
+$sprite-test-image: '../images/sprites.png?v=1541695160274';
+$sprite-test: (65px, 0px, -65px, 0px, 63px, 46px, 128px, 46px, '../images/sprites.png?v=1541695160274', 'sprite-test', );
 $sprite-test-sprite-active-name: 'sprite-test.sprite--active';
 $sprite-test-sprite-active-x: 0px;
 $sprite-test-sprite-active-y: 0px;
@@ -29,13 +29,13 @@ $sprite-test-sprite-active-width: 63px;
 $sprite-test-sprite-active-height: 46px;
 $sprite-test-sprite-active-total-width: 128px;
 $sprite-test-sprite-active-total-height: 46px;
-$sprite-test-sprite-active-image: '../images/sprites.png?v=1541669823855';
-$sprite-test-sprite-active: (0px, 0px, 0px, 0px, 63px, 46px, 128px, 46px, '../images/sprites.png?v=1541669823855', 'sprite-test.sprite--active', );
+$sprite-test-sprite-active-image: '../images/sprites.png?v=1541695160274';
+$sprite-test-sprite-active: (0px, 0px, 0px, 0px, 63px, 46px, 128px, 46px, '../images/sprites.png?v=1541695160274', 'sprite-test.sprite--active', );
 $spritesheet-width: 128px;
 $spritesheet-height: 46px;
-$spritesheet-image: '../images/sprites.png?v=1541669823855';
+$spritesheet-image: '../images/sprites.png?v=1541695160274';
 $spritesheet-sprites: ($sprite-test, $sprite-test-sprite-active, );
-$spritesheet: (128px, 46px, '../images/sprites.png?v=1541669823855', $spritesheet-sprites, );
+$spritesheet: (128px, 46px, '../images/sprites.png?v=1541695160274', $spritesheet-sprites, );
 
 // The provided mixins are intended to be used with the array-like variables
 //
