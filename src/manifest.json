@@ -4,20 +4,6 @@
       "<%= globalConfig.src %>/js/vendor/header/*.js"
     ],
     "jsVendorFooterFiles": [
-      "<%= globalConfig.root %>/node_modules/jquery/dist/jquery.slim.js",
-      "<%= globalConfig.root %>/node_modules/popper.js/dist/umd/popper.js",
-      "<%= globalConfig.root %>/node_modules/bootstrap/js/dist/alert.js",
-      "<%= globalConfig.root %>/node_modules/bootstrap/js/dist/button.js",
-      "<%= globalConfig.root %>/node_modules/bootstrap/js/dist/carousel.js",
-      "<%= globalConfig.root %>/node_modules/bootstrap/js/dist/collapse.js",
-      "<%= globalConfig.root %>/node_modules/bootstrap/js/dist/dropdown.js",
-      "<%= globalConfig.root %>/node_modules/bootstrap/js/dist/modal.js",
-      "<%= globalConfig.root %>/node_modules/bootstrap/js/dist/tooltip.js",
-      "<%= globalConfig.root %>/node_modules/bootstrap/js/dist/popover.js",
-      "<%= globalConfig.root %>/node_modules/bootstrap/js/dist/scrollspy.js",
-      "<%= globalConfig.root %>/node_modules/bootstrap/js/dist/tab.js",
-      "<%= globalConfig.root %>/node_modules/media-match/media.match.js",
-      "<%= globalConfig.root %>/node_modules/enquire.js/dist/enquire.js",
       "<%= globalConfig.src %>/js/vendor/footer/*.js"
     ]
   }

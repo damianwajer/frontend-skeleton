@@ -5,17 +5,19 @@
 
 - [npm](https://github.com/npm/npm)
 - [Grunt](https://github.com/gruntjs/grunt)
-- [libSass](https://github.com/sass/libsass)
 
 ## Getting started
 
-Run `npm install` in the terminal.
+```bash
+npm install
+npm start
+```
 
 You can view all generated pages in "dist/pages" directory, all source files are in "src" directory.
 
 ## Usage
 
-Run `grunt` to build all project files for development and watch for changes or `grunt build` to build files for production.
+Run `npm start` to build all project files for development and watch for changes or `npm build` to build files for production.
 
 ## Documentation
 
@@ -23,7 +25,6 @@ Run `grunt` to build all project files for development and watch for changes or 
 * Sass (SCSS) http://sass-lang.com/
 * Bootstrap http://getbootstrap.com/
 * Handlebars http://handlebarsjs.com/
-* libSass (a C/C++ port of the Sass engine) http://libsass.org/
 * Browsersync http://www.browsersync.io/
 * BEM https://en.bem.info/ | http://getbem.com/
 * SMACSS https://smacss.com/

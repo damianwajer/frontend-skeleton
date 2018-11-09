@@ -93,10 +93,9 @@ module.exports = function (grunt) {
     uglify: {
       dist: {
         options: {
-          mangle: false,
-          beautify: false,
-          preserveComments: /^!|@preserve|@license|@cc_on/i,
-          sourceMap: false
+          output: {
+            comments: /\\*!|@preserve|@license|@cc_on/i
+          },
         },
         files: {
           '<%= globalConfig.dest %>/js/vendors.header.lib.js': '<%= manifest.dependencies.jsVendorHeaderFiles %>',

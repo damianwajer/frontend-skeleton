@@ -1,38 +1,38 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html class="no-js" lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
-    <title>Project pages</title>
+  <title>Project pages</title>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 </head>
 <body>
 <h1>Project pages</h1>
 <ul>
-    {{#each modules}}
-        <li>
-            {{#if path}}
-                <a href="../{{path}}">{{title}}</a>
-            {{else}}
-                <strong>{{title}}</strong>
-            {{/if}}
+  {{#each modules}}
+    <li>
+      {{#if path}}
+        <a href="../{{path}}">{{title}}</a>
+      {{else}}
+        <strong>{{title}}</strong>
+      {{/if}}
 
-            {{#if description}}
-                <p>{{description}}</p>
-            {{/if}}
+      {{#if description}}
+        <p>{{description}}</p>
+      {{/if}}
 
-            {{#if children}}
-                {{&recurse children}}
-            {{/if}}
-        </li>
-    {{/each}}
+      {{#if children}}
+        {{&recurse children}}
+      {{/if}}
+    </li>
+  {{/each}}
 </ul>
 </body>
 </html>

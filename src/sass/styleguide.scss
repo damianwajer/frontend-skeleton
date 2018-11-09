@@ -7,23 +7,22 @@
   height: 140px;
   margin-bottom: 20px;
 
-  &--color1 {
-    background-color: $color1;
+  &:after {
+    display: block;
+    line-height: 140px;
+    text-align: center;
+    color: #fff;
   }
 
-  &--color2 {
-    background-color: $color2;
-  }
+  @each $name, $color in $theme-colors {
+    //@debug $name;
+    &--#{$name} {
+      background-color: $color;
 
-  &--color3 {
-    background-color: $color3;
-  }
-
-  &--color4 {
-    background-color: $color4;
-  }
-
-  &--color5 {
-    background-color: $color5;
+      &:after {
+        color: color-yiq(map_get($theme-colors, $name));
+        content: "#{$name} #{$color}";
+      }
+    }
   }
 }

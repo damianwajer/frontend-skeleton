@@ -3,27 +3,18 @@ $images-path: '../images';
 $fonts-path: '../fonts';
 
 // Colors
-$color1: #cc4a14;
-$color2: #99583d;
-$color3: #ff0000;
-$color4: #40ff40;
-$color5: #54cc14;
-$text-color: #000;
-$link-color: blue;
-$link-hover-color: darken($link-color, 10%);
-$link-hover-decoration: underline;
-$body-bg: #fff;
-$brand-primary: $color1;
+$theme-colors: (
+  "color1": #cc4a14,
+  "color2": #99583d,
+  "color3": #ff0000,
+  "color4": #40ff40,
+  "color5": #54cc14
+);
 
 // Grid
 
 // Typography
 
 // Headings
-$headings-font-weight: 700;
-$headings-color: $text-color;
 
 // Forms
-$input-border: #ccc;
-$input-color: $text-color;
-$input-bg: #fff;
